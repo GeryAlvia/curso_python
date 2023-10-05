@@ -2,11 +2,19 @@
 
 Var1=float(input("Introduce un número: "))
 Var2=float(input("Introduce un número: "))
-coeficiente=Var1/Var2
+coeficiente=Var1//Var2
 resto=Var1%Var2
 par=Var2%2
+impar=Var1%1
 
+
+print("El coeficiente es:",coeficiente)
+print("El resto es:",resto)
 if par==0:
-    print("es par")
-if resto==0:
-    print("es impar")
+    print("El dividiendo es par")
+elif impar==0:
+    print("El dividiendo es impar")
+else:
+    print("El dividiendo es:")    
+
+      
