@@ -1,40 +1,26 @@
 import random
 import string
-
-# Función para generar una letra minúscula aleatoria
 def letra_minuscula():
     return random.choice(string.ascii_lowercase)
-
-# Función para generar una letra mayúscula aleatoria
 def letra_mayuscula():
     return random.choice(string.ascii_uppercase)
-
-# Función para generar un número aleatorio entre 1 y 9 (ambos inclusive)
 def numero():
     return random.randint(1, 9)
-
-# Función para generar un símbolo aleatorio entre *_@&/#
 def simbolo():
     return random.choice('*_@')
 def simbolo():
     return random.choice('&/#')
-
-# Generar la contraseña cumpliendo con los criterios
-contrasena = [
-    str(random.randint(1, 5)),        # Posición 1: número entre 1 y 5
-    letra_minuscula(),                # Posición 2: letra minúscula
-    letra_mayuscula(),                # Posición 3: letra mayúscula
-    random.choice('*_@'),             # Posición 4: símbolo *_@ aleatorio
-    letra_minuscula(),                # Posición 5: letra minúscula
-    str(random.randint(6, 9)),        # Posición 6: número entre 6 y 9
-    random.choice('&/#'),             # Posición 7: símbolo &/# aleatorio
-    str(random.randint(0, 5))         # Posición 8: número entre 0 y 5
+contraseña = [
+    str(random.randint(1, 5)),        
+    letra_minuscula(),                
+    letra_mayuscula(),              
+    random.choice('*_@'),             
+    letra_minuscula(),                
+    str(random.randint(6, 9)),        
+    random.choice('&/#'),             
+    str(random.randint(0, 5))        
 ]
-
-# Mezclar la contraseña para que los elementos estén en posiciones aleatorias
-random.shuffle(contrasena)
-
-# Convertir la lista en una cadena y mostrar la contraseña generada
-contrasena_generada = ''.join(contrasena)
-print("Contraseña generada:", contrasena_generada)
+random.shuffle(contraseña)
+contraseña_generada = ''.join(contraseña)
+print("Contraseña generada:", contraseña_generada)
 input()
