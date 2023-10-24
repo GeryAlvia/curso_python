@@ -1,4 +1,4 @@
-#Ejercicio 4
+#Ejercicio 4 
 SP95= 1.765
 SP98=1.913
 GA=1.746
