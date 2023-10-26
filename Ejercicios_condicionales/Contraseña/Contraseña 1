@@ -1,26 +1,35 @@
-import random
-import string
-def letra_minuscula():
-    return random.choice(string.ascii_lowercase)
-def letra_mayuscula():
-    return random.choice(string.ascii_uppercase)
-def numero():
-    return random.randint(1, 9)
-def simbolo():
-    return random.choice('*_@')
-def simbolo():
-    return random.choice('&/#')
-contraseña = [
-    str(random.randint(1, 5)),        
-    letra_minuscula(),                
-    letra_mayuscula(),              
-    random.choice('*_@'),             
-    letra_minuscula(),                
-    str(random.randint(6, 9)),        
-    random.choice('&/#'),             
-    str(random.randint(0, 5))        
-]
-random.shuffle(contraseña)
-contraseña_generada = ''.join(contraseña)
-print("Contraseña generada:", contraseña_generada)
-input()
+def es_caracter_valido(caracter, posicion):
+    if posicion == 1:
+        return '1' <= caracter <= '5'
+    elif posicion == 2:
+        return caracter.islower()
+    elif posicion == 3:
+        return caracter.isupper()
+    elif posicion == 4:
+        return caracter in '*_@'
+    elif posicion == 5:
+        return caracter.islower()
+    elif posicion == 6:
+        return '6' <= caracter <= '9'
+    elif posicion == 7:
+        return caracter in '&/#'
+    elif posicion == 8:
+        return '0' <= caracter <= '5'
+    else:
+        return False
+def obtener_contraseña():
+    contraseña = input("Introduce una contraseña de 6, 7 u 8 caracteres: ")
+    if 6 <= len(contraseña) <= 8:
+        for i in range(len(contraseña)):
+            if not es_caracter_valido(contraseña[i], i + 1):
+                return False, f"El carácter en la posición {i + 1} no es válido."
+        return True, contraseña
+    else:
+        return False, "La contraseña debe tener 6, 7 u 8 caracteres."
+while True:
+    es_valida, mensaje = obtener_contraseña()
+    if es_valida:
+        print("¡La contraseña es válida!")
+        break
+    else:
+        print(mensaje)
