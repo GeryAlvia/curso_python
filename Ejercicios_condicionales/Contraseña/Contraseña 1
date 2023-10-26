@@ -1,3 +1,15 @@
+#La contraseña
+print("INSTRUCCIONES")
+print("1.La longitud del password té que tenir entre 6 i 8 caracteres")
+print("2.Fuerza los siguientes valores según la posición indicada:")
+print("     Posición 1 Un número mayor o igual a 1 y menor o igual que 5")
+print("     Posición 2 Una letra minúscula")
+print("     Posición 3 Una letra mayuscula")
+print("     Posición 4 Uno de estos símbolos *, _, @")
+print("     Posición 5 Una letra minúscula")
+print("     Posición 6 Un número mayor o igual a 6 y menor o igual que 9")
+print("     Posición 7 Uno de estos símbolos &,/,#")
+print("     Posición 8 Un número menor o igual que 5")
 def es_caracter_valido(caracter, posicion):
     if posicion == 1:
         return '1' <= caracter <= '5'
@@ -18,7 +30,7 @@ def es_caracter_valido(caracter, posicion):
     else:
         return False
 def obtener_contraseña():
-    contraseña = input("Introduce una contraseña de 6, 7 u 8 caracteres: ")
+    contraseña = input("Introduce la contraseña clave: ")
     if 6 <= len(contraseña) <= 8:
         for i in range(len(contraseña)):
             if not es_caracter_valido(contraseña[i], i + 1):
@@ -33,3 +45,4 @@ while True:
         break
     else:
         print(mensaje)
+input()
