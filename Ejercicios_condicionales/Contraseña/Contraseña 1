@@ -10,39 +10,34 @@ print("     Posición 5 Una letra minúscula")
 print("     Posición 6 Un número mayor o igual a 6 y menor o igual que 9")
 print("     Posición 7 Uno de estos símbolos &,/,#")
 print("     Posición 8 Un número menor o igual que 5")
-def es_caracter_valido(caracter, posicion):
-    if posicion == 1:
-        return '1' <= caracter <= '5'
-    elif posicion == 2:
-        return caracter.islower()
-    elif posicion == 3:
-        return caracter.isupper()
-    elif posicion == 4:
-        return caracter in '*_@'
-    elif posicion == 5:
-        return caracter.islower()
-    elif posicion == 6:
-        return '6' <= caracter <= '9'
-    elif posicion == 7:
-        return caracter in '&/#'
-    elif posicion == 8:
-        return '0' <= caracter <= '5'
-    else:
-        return False
-def obtener_contraseña():
-    contraseña = input("Introduce la contraseña clave: ")
-    if 6 <= len(contraseña) <= 8:
-        for i in range(len(contraseña)):
-            if not es_caracter_valido(contraseña[i], i + 1):
-                return False, f"El carácter en la posición {i + 1} no es válido."
-        return True, contraseña
-    else:
-        return False, "La contraseña debe tener 6, 7 u 8 caracteres."
-while True:
-    es_valida, mensaje = obtener_contraseña()
-    if es_valida:
-        print("¡La contraseña es válida!")
-        break
-    else:
-        print(mensaje)
+contraseña = input("Introduce la contraseña clave: ")
+errores = []
+if not(len(contraseña)==6 or len(contraseña)==7 or len(contraseña)==8):
+    errores.append("Error: La contraseña debe tener exactamente entre 6  7 u 8 caracteres.")
+else:
+    if not (1 <= int(contraseña[0]) <= 5):
+        errores.append("Error en el caracter 1")
+    if not contraseña[1].islower():
+        errores.append("Error en el caracter 2")
+    if not contraseña[2].isupper():
+        errores.append("Error en el caracter 3")
+    if contraseña[3] not in "*_@":
+        errores.append("Error en el caracter 4")
+    if not contraseña[4].islower():
+        errores.append("Error en el caracter 5")
+    if not (6 <= int(contraseña[5]) <= 9):
+        errores.append("Error en el caracter 6")
+    if len(contraseña)>=7:
+        if contraseña[6] not in "&/#":
+            errores.append("Error en el caracter 7")
+    if len(contraseña)==8:
+        if not (int(contraseña[7]) <= 5):
+            errores.append("Error en el caracter 8")
+if errores:
+    print(errores)
+else:
+    print("El format del PASSWORD és correcte")
 input()
+
+
+    
