@@ -16,3 +16,4 @@ for _ in range(num_notas):
         print("Asignatura aprobada.")
     else:
         print("Asignatura suspendida.")
+input()
