@@ -11,6 +11,6 @@ for _ in range(n):
         negativos += 1
     else:
         ceros += 1
-print(f"La cantidad de números positivos es: {positivos}")
-print(f"La cantidad de números negativos es: {negativos}")
-print(f"TLa cantidad de números ceros es: {ceros}")
+print(f"La cantidad de números positivos es: ",positivos,"")
+print(f"La cantidad de números negativos es: ",negativos,"")
+print(f"La cantidad de números ceros es: ",ceros,"")
