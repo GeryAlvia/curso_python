@@ -1,18 +1,11 @@
 #20. A partir del ejercicio anterior, forzar que el usuario solo pueda introducir por teclados números entre 0 y 10
 
-numero_1=int(input("Introduzca un numero de entre 0 y 10: "))
-numero_2=int(input("Introduzca un numero de entre 0 y 10: "))
+var1=int(input("Introduzca un valor entre el 0 y el 10= "))
+var2=int(input("Introduzca un valor entre el 0 y el 10= "))
 
-
-if (numero_1>0 and numero_1<10) and (numero_2>0 and numero_2<10):
-
-    numero_1<numero_2
-    print(f"El numero {numero_1} es menor que el numero {numero_2}")
-
-    numero_1>numero_2
-    print(f"El numero {numero_2} es mayor que el numero {numero_1}")
+if var1<var2: var1>var2 and var1>0 and var1<10 and var2>0 and var2<10
 
 
 else:
-    print("Uno de los numeros esta fuera de los rangos")
+    print("Uno o los dos números están fuera de los límites establecidos")
 input()
