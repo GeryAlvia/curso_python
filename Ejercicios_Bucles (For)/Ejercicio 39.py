@@ -14,3 +14,4 @@ for _ in range(n):
 print(f"La cantidad de números positivos es: ",positivos,"")
 print(f"La cantidad de números negativos es: ",negativos,"")
 print(f"La cantidad de números ceros es: ",ceros,"")
+input()

@@ -2,5 +2,9 @@
 for i in range(5, 0, -1):
     for codigo in range(i, 0, -1):
         print(codigo, end='')
-    print(54321)
-    
+    print()
+54321
+4321
+321
+21
+1

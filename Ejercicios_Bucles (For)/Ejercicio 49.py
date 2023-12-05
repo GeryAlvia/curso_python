@@ -13,3 +13,4 @@ while True:
     else:
         print("Por favor, ingresa una letra válida.")
 print("Terminaste el juego. La palabra secreta era:", palabra_secreta)
+input()

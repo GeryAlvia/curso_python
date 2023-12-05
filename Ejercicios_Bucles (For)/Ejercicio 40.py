@@ -8,5 +8,6 @@ while numero <= 50:
 else:
         total_impares += 1
 numero += 1
-print(f"El total de pares es: {total_pares}")
-print(f"El total de impares es: {total_impares}")
+print(f"El total de pares es: ",total_pares,"")
+print(f"El total de impares es: ",total_impares,"")
+input()

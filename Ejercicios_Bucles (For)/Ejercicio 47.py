@@ -7,6 +7,6 @@ if var1<var2:
         print(n, end="-")
 else:
     for n in range(var1,var2-1,-1):
-        print(n, end="-")
+        print(n, end=" ")
 input()
 
