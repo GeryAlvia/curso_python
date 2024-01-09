@@ -10,3 +10,4 @@ def tabla_de_multiplicar():
     except ValueError:
         print("Error: Ingresa un número válido.")
 tabla_de_multiplicar()
+input()
