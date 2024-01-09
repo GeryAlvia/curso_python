@@ -8,7 +8,7 @@ def tabla_de_multiplicar():
             print(resultado)
             contador += 1
             if resultado >= 40:
-                print("El resultado es igual o superior a 40. Finalizando la tabla de multiplicar.")
+                print("Fin del programa.")
                 break
     except ValueError:
         print("Error: Ingresa un número válido.")
