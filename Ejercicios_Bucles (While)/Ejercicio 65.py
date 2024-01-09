@@ -4,7 +4,7 @@ def encontrar_mayor_menor():
     menor = float('inf')  
     while True:
         try:
-            numero = float(input("Introduce un número (-99 para salir): "))
+            numero = float(input("Introduce un número: "))
             if numero == -99:
                 break
             if numero > mayor:
