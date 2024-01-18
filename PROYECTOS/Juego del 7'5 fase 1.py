@@ -1,56 +1,45 @@
 #Fase 1 del 7'5
 import random
-
-def obtener_carta():
-    return random.choice([i for i in range(1, 13) if i not in [8, 9]])
-
-def valor_carta(carta):
-    if carta <= 7:
-        return carta
-    elif carta <= 12:
+def dar_carta():
+    carta = random.randint(1, 12)
+    if carta in [8, 9]:
+        return dar_carta()
+    elif carta in [10, 11, 12]:
         return 0.5
     else:
-        return None
-
-def jugar_partida():
-    puntuacion = 0
-    
-    while True:
-        carta = obtener_carta()
-        print(f"Carta actual: {carta}")
-        
-        valor = valor_carta(carta)
-        if valor is not None:
-            puntuacion += valor
-            print(f"Tu puntuación actual es: {puntuacion}")
-            
-            if puntuacion == 7.5:
-                print("Enhorabuena, has ganado la partida!")
-                break
-            elif puntuacion > 7.5:
-                print("Has perdido la partida!")
-                break
-            elif puntuacion >= 6 and puntuacion <= 7:
-                print("Has sido un poco conservador.")
-                break
+        return carta
+def gestionar_partida():
+    total = 0
+    cartas = []
+    primera_carta = dar_carta()
+    cartas.append(primera_carta)
+    total += primera_carta
+    print(f"Primera carta: {primera_carta} Total: {total}")
+    while total < 7.5:
+        respuesta = input("Quieres otra carta? (s/n): ")
+        if respuesta.lower() == 's':
+            nueva_carta = dar_carta()
+            cartas.append(nueva_carta)
+            total += nueva_carta
+            print(f"Nueva carta: {nueva_carta} Total: {total}")
+        elif respuesta.lower() == 'n':
+            print("Te has plantado.")
+            break
         else:
-            print("Error: Carta inválida.")
-            break
-
-        decision = input("¿Quieres tomar otra carta? (s/n): ").lower()
-        
-        if decision == 'n':
-            if puntuacion < 6:
-                print("Quizás deberías arriesgar un poco, ¿no?")
-            else:
-                print("Te has plantado. ¡Buena decisión!")
-            break
-        elif decision != 's':
-            print("Por favor, introduce 's' para tomar otra carta o 'n' para plantarte.")
+            print("Respuesta no válida. Ingresa 's/n'.")
+    print(f"Cartas: {cartas} Total final: {total}")
+    if total == 7.5:
+        print("¡Enhorabuena, has ganado la partida!")
+    elif total > 7.5:
+        print("Has perdido la partida.")
+    elif 6 <= total <= 7:
+        print("Has sido un poco conservador.")
+    elif total < 6:
+        print("Quizás deberías arriesgar un poco, ¿no?")
 while True:
-    jugar_partida()
-    otra_partida = input("¿Quieres jugar otra partida? (s/n): ").lower()
-    
-    if otra_partida != 's':
-        print("Gracias por jugar. ¡Hasta luego!")
+    gestionar_partida()
+    jugar_nueva_partida = input("Quieres jugar otra partida? (s/n): ")
+    if jugar_nueva_partida.lower() != 's':
+        print("¡Gracias por jugar! Hasta luego.")
         break
+input()
