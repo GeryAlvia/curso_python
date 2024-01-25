@@ -27,15 +27,15 @@ def gestionar_partida():
             break
         else:
             print("Respuesta no válida. Ingresa 's/n'.")
-    print(f"Cartas: {cartas} Total final: {total}")
+            print(f"Cartas: {cartas} Total final: {total}")
     if total == 7.5:
-        print("¡Enhorabuena, has ganado la partida!")
+            print("¡Enhorabuena, has ganado la partida!")
     elif total > 7.5:
-        print("Has perdido la partida.")
+            print("Has perdido la partida.")
     elif 6 <= total <= 7:
-        print("Has sido un poco conservador.")
+            print("Has sido un poco conservador.")
     elif total < 6:
-        print("Quizás deberías arriesgar un poco, ¿no?")
+            print("Quizás deberías arriesgar un poco, ¿no?")
 while True:
     gestionar_partida()
     jugar_nueva_partida = input("Quieres jugar otra partida? (s/n): ")
