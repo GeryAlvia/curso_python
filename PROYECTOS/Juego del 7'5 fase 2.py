@@ -1,7 +1,7 @@
 #Fase 2 del 7'5
 import random
-print("                   ♠️♥️ HOLA BIENVENIDO AL JUEGO DEL 7,5 ♦️♣️                       ")
-print("Ademas tienes que saber que los numeros 10, 11 y 12 pasan a ser directamente 0,5")
+print("                              ♠️♥️ HOLA BIENVENIDO AL JUEGO DEL 7,5 ♦️♣️                       ")
+print("Antes de comenzar a jugar tienes que saber que los numeros 10, 11 y 12 pasan a ser directamente 0,5")
 def dar_carta():
     carta = random.randint(1, 12)
     if carta in [8, 9]:
@@ -61,3 +61,4 @@ while puntos > 0:
 
     puntos = gestionar_partida(puntos)
 print("😢Te has quedado sin puntos. Haber si la próxima vez lo haces mejor ¡Que vaya bien!")
+input()
