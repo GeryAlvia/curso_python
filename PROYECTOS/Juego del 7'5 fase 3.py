@@ -1,7 +1,6 @@
 #Fase 3 del 7'5
 import random
-print("                   ♠️♥️ HOLA BIENVENIDO AL JUEGO DEL 7,5 ♦️♣️                       ")
-print("Ademas tienes que saber que los numeros 10, 11 y 12 pasan a ser directamente 0,5")
+import time
 def dar_carta():
     carta = random.randint(1, 12)
     if carta in [8, 9]:
@@ -10,54 +9,50 @@ def dar_carta():
         return 0.5
     else:
         return carta
-
-def gestionar_partida(puntos):
-    total = 0
-    cartas = []
-    primera_carta = dar_carta()
-    cartas.append(primera_carta)
-    total += primera_carta
-    print(f"Primera carta: {primera_carta} Total: {total}")
-
-    while total < 7.5:
-        respuesta = input("¿Quieres escoger otra carta? (s/n): ")
+def gestionar_partida():
+    total_jugador = 0
+    total_banca = 0
+    cartas_jugador = []
+    cartas_banca = []
+    alias = input("Introduce tu alias para comenzar el juego: ")
+    print(f"Bienvenido, {alias}, antes de comenzar a jugar tienes que saber que los numeros 10, 11 y 12 pasan a ser directamente 0,5.")
+    while total_jugador < 7.5:
+        respuesta = input(f"{alias}, ¿quieres otra carta? (s/n): ")
         if respuesta.lower() == 's':
-            nueva_carta = dar_carta()
-            cartas.append(nueva_carta)
-            total += nueva_carta
-            print(f"Nueva carta: {nueva_carta} Total: {total}")
+            nueva_carta_jugador = dar_carta()
+            cartas_jugador.append(nueva_carta_jugador)
+            total_jugador += nueva_carta_jugador
+            print(f"Nueva carta de {alias}: {nueva_carta_jugador} Total de {alias}: {total_jugador}")
+            time.sleep(1) 
         elif respuesta.lower() == 'n':
-            print("Te has plantado.")
+            print(f"{alias} se ha plantado.")
             break
         else:
-            print("Respuesta no válida. Escribe 's/n' para seguir jugando.")
+            print("Para seguir jugando debes de introducir's/n'.")
+    print("Turno de la banca:")
+    while total_banca < 5.0:
+        nueva_carta_banca = dar_carta()
+        cartas_banca.append(nueva_carta_banca)
+        total_banca += nueva_carta_banca
+        print(f"Nueva carta de la banca: {nueva_carta_banca} Total de la banca: {total_banca}")
+        time.sleep(1.5) 
+    print(f"Cartas de {alias}: {cartas_jugador} Total de {alias}: {total_jugador}")
+    print(f"Cartas de la banca: {cartas_banca} Total de la banca: {total_banca}")
 
-    print(f"Cartas: {cartas} Total final: {total}")
-
-    if total == 7.5:
-        puntos += 10
-        print("¡Enhorabuena, has ganado la partida y obtienes 10 puntos!")
-    elif total > 7.5:
-        puntos -= 10
-        print("Has perdido la partida. Pierdes 10 puntos.")
-    elif 6 <= total <= 7:
-        puntos += 5
-        print("Has sido un poco conservador. Ganaste 5 puntos.")
-    elif total < 6:
-        puntos -= 5
-        print("Quizás deberías arriesgar un poco, ¿no? Pierdes 5 puntos.")
-
-    return puntos
-
-puntos = 100
-
-while puntos > 0:
-    print(f"Tus puntos actuales: {puntos}")
-    jugar_nueva_partida = input("Jugar partida? (s/n): ")
-
+    if total_jugador > 7.5:
+        print("¡La banca gana! El jugador se ha pasado de 7.5.")
+    elif total_banca > 7.5:
+        print(f"¡Felicidades {alias}! La banca se ha pasado de 7.5.")
+    elif total_jugador == total_banca:
+        print("¡Empate! El jugador y la banca tienen la misma puntuación.")
+    elif total_jugador > total_banca:
+        print(f"¡Has ganado {alias}! Has obtenido una puntuación mayor que la banca.")
+    else:
+        print("¡La banca gana! Ha obtenido una puntuación mayor que el jugador.")
+while True:
+    gestionar_partida()
+    jugar_nueva_partida = input("¿Quieres jugar otra partida? (s/n): ")
     if jugar_nueva_partida.lower() != 's':
-        print("Acuerdate de que aún te quedan puntos para continuar jugando 🙂.")
-        exit()
+        print("¡Gracias por jugar! QUE VALLA BIEN 🙂.")
+        break
 
-    puntos = gestionar_partida(puntos)
-print("😢Te has quedado sin puntos. Haber si la próxima vez lo haces mejor ¡Que vaya bien!")
