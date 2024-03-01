@@ -2,7 +2,7 @@ print ("MENÚ")
 print ("1. Operación a)")
 print ("2. Operación b)")
 print ("3. Operación c)")
-print ("4. Operación a)")
+print ("4. Operación d)")
 
 var_opción=int(input("Introduce una opción del menú:"))
 
